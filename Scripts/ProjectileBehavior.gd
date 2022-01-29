@@ -9,6 +9,7 @@ func _ready():
 func on_projectile_hit(body: Node):
 	if body.name == "Foreground":
 		emit_signal("crystal_hit")
+	$HitSoundEffect.play()
 	explode()
 
 func explode():

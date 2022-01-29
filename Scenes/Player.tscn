@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/CameraZoomViewport.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/PlayerController.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Assets/Hero/hero-down.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Hero/hero-left.png" type="Texture" id=6]
 [ext_resource path="res://Assets/circle16.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sounds/shot.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Sounds/world.wav" type="AudioStream" id=9]
 
 [sub_resource type="CircleShape2D" id=7]
 
@@ -67,3 +69,9 @@ gravity = Vector2( 0, 0 )
 initial_velocity = 30.0
 color = Color( 1, 0, 0, 1 )
 color_ramp = SubResource( 8 )
+
+[node name="ShotSoundEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="ChangeWorldSoundEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )

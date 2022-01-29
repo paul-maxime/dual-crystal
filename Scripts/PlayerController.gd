@@ -22,6 +22,7 @@ func swap_world_if_possible():
 				$CPUParticles2D.color = $AnimatedSprite.modulate
 				$CPUParticles2D.restart()
 				$CPUParticles2D.emitting = true
+				$ChangeWorldSoundEffect.play()
 					
 
 func swap_color():
@@ -56,6 +57,7 @@ func create_projectile():
 	projectile.position = position
 	projectile.connect("crystal_hit", self, "swap_world_if_possible")
 	get_current_world().add_child(projectile)
+	$ShotSoundEffect.play()
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("shoot"):
