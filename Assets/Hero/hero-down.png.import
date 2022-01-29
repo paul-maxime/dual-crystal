@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/basictiles.png-68bf0ee782435495fbabe83f5fc84e74.stex"
+path="res://.import/hero-down.png-29063b8fd106719a93db44f20cfdd094.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/basictiles.png"
-dest_files=[ "res://.import/basictiles.png-68bf0ee782435495fbabe83f5fc84e74.stex" ]
+source_file="res://Assets/Hero/hero-down.png"
+dest_files=[ "res://.import/hero-down.png-29063b8fd106719a93db44f20cfdd094.stex" ]
 
 [params]
 
