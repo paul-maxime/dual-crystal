@@ -18,6 +18,11 @@ func swap_world_if_possible():
 			swap_color()
 			if test_move(transform, Vector2.ZERO):
 				swap_color()
+			else:
+				$CPUParticles2D.color = $AnimatedSprite.modulate
+				$CPUParticles2D.restart()
+				$CPUParticles2D.emitting = true
+					
 
 func swap_color():
 	if collision_layer == 1:

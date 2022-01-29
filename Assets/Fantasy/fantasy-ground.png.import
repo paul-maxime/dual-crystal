@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fantasy-ground.png-60b6c8f67430bcf55070ffecef70ac31.stex"
+path="res://.import/fantasy-ground.png-1cb99b1e100e5475363f379b55809a42.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/fantasy-ground.png"
-dest_files=[ "res://.import/fantasy-ground.png-60b6c8f67430bcf55070ffecef70ac31.stex" ]
+source_file="res://Assets/Fantasy/fantasy-ground.png"
+dest_files=[ "res://.import/fantasy-ground.png-1cb99b1e100e5475363f379b55809a42.stex" ]
 
 [params]
 

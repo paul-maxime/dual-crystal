@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/CameraZoomViewport.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/PlayerController.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/Hero/hero-right.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Hero/hero-down.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Hero/hero-left.png" type="Texture" id=6]
+[ext_resource path="res://Assets/circle16.png" type="Texture" id=7]
 
 [sub_resource type="CircleShape2D" id=7]
 
@@ -32,6 +33,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="Gradient" id=8]
+colors = PoolColorArray( 1, 1, 1, 0.25098, 1, 1, 1, 0 )
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
@@ -48,3 +52,18 @@ script = ExtResource( 1 )
 modulate = Color( 0, 0, 1, 1 )
 frames = SubResource( 6 )
 animation = "down_idle"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 0, 4 )
+emitting = false
+amount = 12
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.2
+texture = ExtResource( 7 )
+direction = Vector2( 0, -1 )
+spread = 30.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 30.0
+color = Color( 1, 0, 0, 1 )
+color_ramp = SubResource( 8 )
