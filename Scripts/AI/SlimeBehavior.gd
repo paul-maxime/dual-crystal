@@ -19,4 +19,10 @@ func _physics_process(delta):
 
 func die():
 	emit_signal("died")
+	$CollisionShape2D.set_deferred("disabled", true)
+	$Tween.interpolate_property($Sprite, "modulate", Color(1.0, 1.0, 1.0, 1.0), Color(1.0, 1.0, 1.0, 0.0), 0.2, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	$Tween.connect("tween_completed", self, "death_animation_finished")
+	$Tween.start()
+
+func death_animation_finished(obj, key):
 	queue_free()
