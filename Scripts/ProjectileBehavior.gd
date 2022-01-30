@@ -9,10 +9,10 @@ func _ready():
 func on_projectile_hit(body: Node):
 	if $CollisionShape2D.disabled:
 		return
-	if body.name == "Foreground":
+	if body.is_in_group("crystal"):
 		emit_signal("crystal_hit")
 	if body.is_in_group("enemy"):
-		body.queue_free()
+		body.die()
 	$HitSoundEffect.play()
 	explode()
 

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Scifi/scifi-door-closed.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/DoorBehavior.gd" type="Script" id=2]
+
+[node name="Door" type="StaticBody2D"]
+position = Vector2( 0, -64 )
+collision_layer = 5
+collision_mask = 5
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -16, -16 )
+polygon = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
