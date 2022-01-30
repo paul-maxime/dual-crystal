@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="TestDuality"
+config/name="DualCrystal"
 run/main_scene="res://MainScene.tscn"
 config/icon="res://Assets/icon.png"
 
