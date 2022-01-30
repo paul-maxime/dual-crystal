@@ -9,6 +9,7 @@ var last_velocity = Vector2.DOWN
 
 func _ready():
 	get_current_world().get_node("MusicPlayer").play()
+	$AnimatedSprite.playing = true
 
 func is_empty_area(tilemap: TileMap):
 	var cell = tilemap.world_to_map(position)
@@ -40,15 +41,15 @@ func swap_color():
 		collision_layer = 1
 		collision_mask = 1
 
-func update_animation(velocity):
-	if velocity.y < 0:
-		$AnimatedSprite.animation = "up_idle"
-	if velocity.y > 0:
-		$AnimatedSprite.animation = "down_idle"
+func update_animation(velocity, type):
 	if velocity.x < 0:
-		$AnimatedSprite.animation = "left_idle"
-	if velocity.x > 0:
-		$AnimatedSprite.animation = "right_idle"
+		$AnimatedSprite.animation = "left_" + type
+	elif velocity.x > 0:
+		$AnimatedSprite.animation = "right_" + type
+	elif velocity.y < 0:
+		$AnimatedSprite.animation = "up_" + type
+	elif velocity.y > 0:
+		$AnimatedSprite.animation = "down_" + type
 
 func get_current_world():
 	if collision_layer == 1:
@@ -59,7 +60,7 @@ func get_current_world():
 func create_projectile():
 	var projectile: RigidBody2D = projectile_scene.instance()
 	projectile.linear_velocity = last_velocity * BULLET_SPEED
-	projectile.position = position
+	projectile.position = position + last_velocity * 8
 	projectile.connect("crystal_hit", self, "swap_world_if_possible")
 	get_current_world().add_child(projectile)
 	$ShotSoundEffect.play()
@@ -80,5 +81,7 @@ func _physics_process(_delta):
 
 	if velocity != Vector2.ZERO:
 		last_velocity = velocity.normalized()
-		update_animation(velocity)
+		update_animation(velocity, "walk")
 		move_and_slide(velocity.normalized() * SPEED)
+	else:
+		update_animation(last_velocity, "idle")
