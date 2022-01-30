@@ -139,6 +139,7 @@ animations = [ {
 colors = PoolColorArray( 1, 1, 1, 0.25098, 1, 1, 1, 0 )
 
 [node name="Player" type="KinematicBody2D"]
+z_index = 2
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

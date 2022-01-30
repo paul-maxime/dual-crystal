@@ -5,6 +5,8 @@ export(Texture) var ClosedTexture
 
 export(Array, String) var LinkedEnemies
 
+onready var player: KinematicBody2D = get_node("/root/MainScene/Player")
+
 var killed_enemies = 0
 
 func _ready():
@@ -22,3 +24,9 @@ func enemy_died():
 func open():
 	$CollisionPolygon2D.set_deferred("disabled", true)
 	$Sprite.texture = OpenTexture
+
+func _process(_delta):
+	if player.global_position.y < global_position.y:
+		z_index = 8
+	else:
+		z_index = 1
