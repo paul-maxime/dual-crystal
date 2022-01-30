@@ -10,6 +10,7 @@ func on_projectile_hit(body: Node):
 	if $CollisionShape2D.disabled:
 		return
 	if body.is_in_group("crystal"):
+		body.hit()
 		emit_signal("crystal_hit")
 	if body.is_in_group("enemy"):
 		body.die()

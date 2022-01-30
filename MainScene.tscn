@@ -102,6 +102,10 @@ position = Vector2( 138, 518 )
 [node name="Room7Slime2" parent="BlueWorld" instance=ExtResource( 7 )]
 position = Vector2( 167, 536 )
 
+[node name="Crystal5" parent="BlueWorld" instance=ExtResource( 11 )]
+position = Vector2( 55, -40 )
+script = ExtResource( 14 )
+
 [node name="RedWorld" type="Node2D" parent="."]
 modulate = Color( 1, 0, 0, 1 )
 

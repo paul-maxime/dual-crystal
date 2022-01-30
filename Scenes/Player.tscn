@@ -177,3 +177,4 @@ stream = ExtResource( 8 )
 
 [node name="ChangeWorldSoundEffect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+volume_db = -3.0
