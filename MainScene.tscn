@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Assets/white16.png" type="Texture" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://Assets/Scifi/scifi-door-open.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Scifi/scifi-door-closed.png" type="Texture" id=13]
 [ext_resource path="res://Scripts/CrystalBehavior.gd" type="Script" id=14]
+[ext_resource path="res://Assets/Musics/DarkFantasyStudio-TheBard.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Assets/Musics/DarkFantasyStudio-GhostHacker.ogg" type="AudioStream" id=16]
 
 [sub_resource type="CanvasItemMaterial" id=3]
 blend_mode = 1
@@ -60,6 +62,8 @@ format = 1
 tile_data = PoolIntArray( -1769479, 1, 0 )
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="BlueWorld"]
+stream = ExtResource( 15 )
+volume_db = -15.0
 script = ExtResource( 8 )
 
 [node name="Room1Door" parent="BlueWorld" instance=ExtResource( 5 )]
@@ -128,6 +132,8 @@ collision_mask = 10
 format = 1
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="RedWorld"]
+stream = ExtResource( 16 )
+volume_db = -3.0
 script = ExtResource( 8 )
 
 [node name="Crystal" parent="RedWorld" instance=ExtResource( 11 )]

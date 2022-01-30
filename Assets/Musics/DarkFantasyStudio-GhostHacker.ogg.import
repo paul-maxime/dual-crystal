@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/DarkFantasyStudio-GhostHacker.ogg-9893438aebc1f93ec75914686515a71a.oggstr"
+
+[deps]
+
+source_file="res://Assets/Musics/DarkFantasyStudio-GhostHacker.ogg"
+dest_files=[ "res://.import/DarkFantasyStudio-GhostHacker.ogg-9893438aebc1f93ec75914686515a71a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
