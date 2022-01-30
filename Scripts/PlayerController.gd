@@ -7,6 +7,9 @@ var projectile_scene = load("res://Scenes/Projectile.tscn")
 
 var last_velocity = Vector2.DOWN
 
+func _ready():
+	get_current_world().get_node("MusicPlayer").play()
+
 func is_empty_area(tilemap: TileMap):
 	var cell = tilemap.world_to_map(position)
 	var tile = tilemap.get_cellv(cell)
@@ -15,15 +18,17 @@ func is_empty_area(tilemap: TileMap):
 func swap_world_if_possible():
 	if not is_empty_area(get_node("../BlueWorld/Background")):
 		if not is_empty_area(get_node("../RedWorld/Background")):
+			var previous_world = get_current_world()
 			swap_color()
 			if test_move(transform, Vector2.ZERO):
 				swap_color()
 			else:
+				previous_world.get_node("MusicPlayer").pause()
+				get_current_world().get_node("MusicPlayer").resume()
 				$CPUParticles2D.color = $AnimatedSprite.modulate
 				$CPUParticles2D.restart()
 				$CPUParticles2D.emitting = true
 				$ChangeWorldSoundEffect.play()
-					
 
 func swap_color():
 	if collision_layer == 1:
@@ -59,7 +64,7 @@ func create_projectile():
 	get_current_world().add_child(projectile)
 	$ShotSoundEffect.play()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_just_pressed("shoot"):
 		create_projectile()
 
